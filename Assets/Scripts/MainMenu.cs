@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     }
     public void rewardAd()
     {
-        IronSource.Agent.loadRewardedVideo();
+        IronSource.Agent.showRewardedVideo();
     }
     public void quitGame()
     {

@@ -126,7 +126,7 @@ public class AdsManager : MonoBehaviour
     void InterstitialOnAdReadyEvent(IronSourceAdInfo adInfo)
     {
         Debug.Log("unity-script: I got InterstitialOnAdReadyEvent With AdInfo " + adInfo);
-        IronSource.Agent.showInterstitial();
+        IronSource.Agent.isInterstitialReady();
     }
 
     void InterstitialOnAdLoadFailed(IronSourceError ironSourceError)

@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
     public GameOverScript GameOverScript;
     private int score = 0;
     private bool isGameOver = false;
-
+    public Transform player;
     void Start()
     {
         // Initialize the game
         isGameOver = false;
         UpdateScore(0);
-        
-        
-     }
+        IronSource.Agent.loadInterstitial();
+
+    }
 
     // Method to handle game over
     public void GameOver()
@@ -29,10 +29,12 @@ public class GameManager : MonoBehaviour
         {
             
             GameOverScript.SetUp(score);
-            IronSource.Agent.loadInterstitial();
+            
+            IronSource.Agent.showInterstitial();
 
         }
     }
+
 
     // Method to update the player's score
     public void UpdateScore(int points)

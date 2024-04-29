@@ -54,7 +54,14 @@ public class SpaceRunner : MonoBehaviour
             }
             // Update the spawn position ahead of the player
             obstacleSpawnPosition = player.position + player.forward * spawnAheadDistance;
-
+            // Check if player has moved forward past an obstacle spawn position
+            if (player.position.z > obstacleSpawnPosition.z)
+            {
+                // Increase score
+                score++;
+                // Update UI
+                UpdateUI();
+            }
         }
 
     }
@@ -116,21 +123,12 @@ public class SpaceRunner : MonoBehaviour
         }
     }
 
-    // Method to handle scoring
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("ScoreTrigger"))
-        {
-            // Increase score when passing a score trigger
-            score++;
-            // Update UI
-            UpdateUI();
-        }
-    }
+
 
     // Method to update UI elements
     void UpdateUI()
     {
+       
         scoreText.text = "Score: " + score;
         coinsText.text = "Coins: " + coins;
     }

@@ -409,7 +409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -253, y: 39}
+  m_AnchoredPosition: {x: -299, y: 68}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136798536
@@ -676,7 +676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 324, y: 41}
+  m_AnchoredPosition: {x: 324, y: 68.000015}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227641769
@@ -1464,8 +1464,9 @@ MonoBehaviour:
   scoreText: {fileID: 1897481388}
   spaceRunner: {fileID: 8859112131872953713}
   adsManager: {fileID: 2075697300}
-  AdMobAdManager: {fileID: 0}
+  AdMobAdManager: {fileID: 2075697301}
   GameOverScript: {fileID: 2112389203}
+  player: {fileID: 5574955092843109077}
 --- !u!4 &1420567776
 Transform:
   m_ObjectHideFlags: 0
@@ -2185,7 +2186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2112389202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3801,7 +3802,7 @@ Transform:
   m_GameObject: {fileID: 5050198408386265199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0044188, y: 0.27364, z: -0.82063}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.22759318, y: 0.22759318, z: 0.22759318}
   m_ConstrainProportionsScale: 0
   m_Children:
