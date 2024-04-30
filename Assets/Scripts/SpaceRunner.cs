@@ -15,7 +15,7 @@ public class SpaceRunner : MonoBehaviour
     public GameManager gameManager; // Reference to the GameManager script
     public TMP_Text scoreText; // UI text for displaying score
     public TMP_Text coinsText; // UI text for displaying coins
-    private int score = 0; // Player's score
+    private int score ; // Player's score
     private int coins = 0; // Player's coins
     private bool isGameOver = false;
     private Vector3 obstacleSpawnPosition;
@@ -25,6 +25,7 @@ public class SpaceRunner : MonoBehaviour
     {
         // Start spawning obstacles
         InvokeRepeating("SpawnObstacle", obstacleSpawnInterval, obstacleSpawnInterval);
+        score = (int)transform.position.z;
     }
 
 
@@ -55,13 +56,13 @@ public class SpaceRunner : MonoBehaviour
             // Update the spawn position ahead of the player
             obstacleSpawnPosition = player.position + player.forward * spawnAheadDistance;
             // Check if player has moved forward past an obstacle spawn position
-            if (player.position.z > obstacleSpawnPosition.z)
-            {
+            
+            
                 // Increase score
                 score++;
                 // Update UI
                 UpdateUI();
-            }
+            
         }
 
     }
@@ -116,10 +117,8 @@ public class SpaceRunner : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("game over");
-            isGameOver = true;
-
             gameManager.GameOver();
-
+            
         }
     }
 
@@ -128,8 +127,8 @@ public class SpaceRunner : MonoBehaviour
     // Method to update UI elements
     void UpdateUI()
     {
-       
-        scoreText.text = "Score: " + score;
+
+        scoreText.text = "Score: "+ score;
         coinsText.text = "Coins: " + coins;
     }
 

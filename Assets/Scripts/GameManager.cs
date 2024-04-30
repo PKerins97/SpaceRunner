@@ -18,30 +18,32 @@ public class GameManager : MonoBehaviour
         // Initialize the game
         isGameOver = false;
         UpdateScore(0);
-        IronSource.Agent.loadInterstitial();
+        AdMobAdManager.LoadBannerAd();
+        
 
     }
 
     // Method to handle game over
     public void GameOver()
     {
+
         if (!isGameOver)
         {
-            
+            Debug.Log("Game Over");
+            AdMobAdManager.LoadInterstitialAd();
             GameOverScript.SetUp(score);
-            
-            IronSource.Agent.showInterstitial();
 
         }
+        
     }
 
 
     // Method to update the player's score
     public void UpdateScore(int points)
     {
-       score += points;
-    // Update UI to reflect the new score
-      scoreText.text = "Score: " + score;
+        score += points;
+        // Update UI to reflect the new score
+        scoreText.text = "Score: " + score;
     }
 
 }

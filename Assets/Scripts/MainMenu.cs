@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public AdsManager adsManager;
+    public AdMobAdManager adMobAdManager;
     public void playGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void rewardAd()
     {
-        IronSource.Agent.showRewardedVideo();
+        Debug.Log("Button pressed");
+        adMobAdManager.LoadRewardedAd();
+        adMobAdManager.ShowRewardedAd();
     }
     public void quitGame()
     {

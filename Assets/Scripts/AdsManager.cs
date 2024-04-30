@@ -71,6 +71,8 @@ public class AdsManager : MonoBehaviour
         IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
     }
 
+
+
     #region Init callback handlers
 
     void SdkInitializationCompletedEvent()
@@ -96,7 +98,7 @@ public class AdsManager : MonoBehaviour
     void RewardedVideoOnAdAvailable(IronSourceAdInfo adInfo)
     {
         Debug.Log("unity-script: I got RewardedVideoOnAdAvailable With AdInfo " + adInfo);
-        IronSource.Agent.showRewardedVideo();
+        IronSource.Agent.loadRewardedVideo();
     }
 
     void RewardedVideoOnAdUnavailable()
@@ -112,13 +114,17 @@ public class AdsManager : MonoBehaviour
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement ironSourcePlacement, IronSourceAdInfo adInfo)
     {
         Debug.Log("unity-script: I got RewardedVideoOnAdRewardedEvent With Placement" + ironSourcePlacement + "And AdInfo " + adInfo);
+
     }
 
     void RewardedVideoOnAdClickedEvent(IronSourcePlacement ironSourcePlacement, IronSourceAdInfo adInfo)
     {
         Debug.Log("unity-script: I got RewardedVideoOnAdClickedEvent With Placement" + ironSourcePlacement + "And AdInfo " + adInfo);
     }
-
+    public void ShowRewardAd()
+    {
+        IronSource.Agent.showRewardedVideo();
+    }
     #endregion
 
     #region AdInfo Interstitial
@@ -126,7 +132,7 @@ public class AdsManager : MonoBehaviour
     void InterstitialOnAdReadyEvent(IronSourceAdInfo adInfo)
     {
         Debug.Log("unity-script: I got InterstitialOnAdReadyEvent With AdInfo " + adInfo);
-        IronSource.Agent.isInterstitialReady();
+        
     }
 
     void InterstitialOnAdLoadFailed(IronSourceError ironSourceError)
@@ -166,6 +172,9 @@ public class AdsManager : MonoBehaviour
     void BannerOnAdLoadedEvent(IronSourceAdInfo adInfo)
     {
         Debug.Log("unity-script: I got BannerOnAdLoadedEvent With AdInfo " + adInfo);
+        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
+
+
     }
 
     void BannerOnAdLoadFailedEvent(IronSourceError ironSourceError)
