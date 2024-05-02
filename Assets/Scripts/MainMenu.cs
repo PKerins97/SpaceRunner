@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : MonoBehaviour
 {
     public AdMobAdManager adMobAdManager;
+    public playGamesManager playGamesManager;
     public void playGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -13,13 +15,12 @@ public class MainMenu : MonoBehaviour
     public void rewardAd()
     {
         Debug.Log("Button pressed");
-        adMobAdManager.LoadRewardedAd();
-        adMobAdManager.ShowRewardedAd();
+        adMobAdManager.LoadReward();
     }
     public void quitGame()
     {
         Application.Quit();
     }
 
-
+ 
 }

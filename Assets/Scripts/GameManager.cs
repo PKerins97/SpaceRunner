@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class GameManager : MonoBehaviour
 {
     public TMP_Text scoreText; // UI text for displaying score
-    //public GameObject gameOverPanel; // UI panel for displaying game over
     public SpaceRunner spaceRunner; // Reference to the SpaceRunnerGame script
     public AdsManager adsManager;
     public AdMobAdManager AdMobAdManager;
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour
     {
         // Initialize the game
         isGameOver = false;
-        UpdateScore(0);
-        AdMobAdManager.LoadBannerAd();
+        UpdateScore(score);
+        
         
 
     }
@@ -30,11 +31,10 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             Debug.Log("Game Over");
-            AdMobAdManager.LoadInterstitialAd();
             GameOverScript.SetUp(score);
-
+            AdMobAdManager.LoadInterstitial();
         }
-        
+        AdMobAdManager.LoadBanner();
     }
 
 

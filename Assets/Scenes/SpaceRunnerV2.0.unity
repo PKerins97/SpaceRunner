@@ -336,7 +336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 110924547}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8859112131872953713}
+        m_TargetAssemblyTypeName: SpaceRunner, Assembly-CSharp
+        m_MethodName: MoveLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &110924547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1965,7 +1977,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1844790322}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8859112131872953713}
+        m_TargetAssemblyTypeName: SpaceRunner, Assembly-CSharp
+        m_MethodName: MoveRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1844790322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,8 +2431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550b751f67017b144a4e1bc44c12d43d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCoinsTxt: {fileID: 0}
-  appId: ca-app-pub-9596608829452035~3452189410
 --- !u!4 &2038249498
 Transform:
   m_ObjectHideFlags: 0
@@ -2524,7 +2546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adsManager: {fileID: 2075697300}
-  scoreText: {fileID: 136798536}
+  scoreText: {fileID: 1897481388}
   GameManager: {fileID: 1420567775}
   AdMobAdManager: {fileID: 2038249497}
 --- !u!114 &2112389204
@@ -5030,10 +5052,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   obstacleSpawnInterval: 2
+  coinSpawnInterval: 2
   spawnAheadDistance: 15
   obstacleSpeed: 4
   spawnAreaWidth: 10
   obstaclePrefab: {fileID: 2747287008626689127, guid: bf3077cad0fac474f82927b0d7c3b607, type: 3}
+  coinPrefab: {fileID: 4760568389606173397, guid: cecc00a622679fc40b2e66142e9fde55, type: 3}
   player: {fileID: 5574955092843109077}
   gameManager: {fileID: 1420567775}
   scoreText: {fileID: 136798536}

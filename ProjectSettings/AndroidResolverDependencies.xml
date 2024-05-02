@@ -5,6 +5,7 @@
     <package>com.google.android.gms:play-services-ads-identifier:18.0.1</package>
     <package>com.google.android.gms:play-services-basement:18.1.0</package>
     <package>com.google.android.ump:user-messaging-platform:2.2.0</package>
+    <package>com.google.games:gpgs-plugin-support:0.11.01</package>
     <package>com.ironsource.adapters:unityadsadapter:4.3.37</package>
     <package>com.ironsource.sdk:mediationsdk:8.0.0</package>
     <package>com.ironsource:adqualitysdk:7.18.1</package>
@@ -70,12 +71,16 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.2.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-cronet-18.0.1.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-drive-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-games-v2-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-20.1.2.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-20.1.2.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-18.0.2.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar</file>
     <file>Assets/Plugins/Android/com.google.android.ump.user-messaging-platform-2.2.0.aar</file>
     <file>Assets/Plugins/Android/com.google.code.findbugs.jsr305-3.0.2.jar</file>
     <file>Assets/Plugins/Android/com.google.errorprone.error_prone_annotations-2.11.0.jar</file>
+    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.11.01.aar</file>
     <file>Assets/Plugins/Android/com.google.guava.failureaccess-1.0.1.jar</file>
     <file>Assets/Plugins/Android/com.google.guava.guava-31.1-android.jar</file>
     <file>Assets/Plugins/Android/com.google.guava.listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar</file>
@@ -100,7 +105,7 @@
     <file>Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-jvm-1.7.1.jar</file>
   </files>
   <settings>
-    <setting name="androidAbis" value="armeabi-v7a" />
+    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
     <setting name="bundleId" value="com.DefaultCompany.SpaceRunner" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />

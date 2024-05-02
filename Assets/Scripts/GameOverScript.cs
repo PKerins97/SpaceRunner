@@ -12,16 +12,17 @@ public class GameOverScript : MonoBehaviour
     public TMP_Text scoreText;
     public GameManager GameManager;
     public AdMobAdManager AdMobAdManager;
+    
     public void SetUp(int score)
     {
         gameObject.SetActive(true);
+        scoreText.text = "Score: " + score.ToString();
         
-        scoreText.text = score.ToString() + "Score";
     }
    
     public void RestartButton()
     {
-        AdMobAdManager.LoadInterstitialAd();
+        
         SceneManager.LoadScene("SpaceRunnerV2.0");
       
     }
