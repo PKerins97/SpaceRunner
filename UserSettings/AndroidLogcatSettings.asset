@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.SpaceRunner",
-        "processId": 3795,
+        "processId": 8473,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -84,6 +84,12 @@
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.SpaceRunner",
             "processId": 3795,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 8473,
             "exited": false
         }
     ],
