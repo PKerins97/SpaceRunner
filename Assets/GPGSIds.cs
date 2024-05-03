@@ -24,6 +24,9 @@
 
 public static class GPGSIds
 {
+        public const string achievement_gimme_the_loot = "CgkI_pyi-7IcEAIQAw"; // <GPGSID>
+        public const string achievement_rolling_in_it = "CgkI_pyi-7IcEAIQBA"; // <GPGSID>
+        public const string achievement_getting_started = "CgkI_pyi-7IcEAIQAg"; // <GPGSID>
         public const string leaderboard_spacerunner = "CgkI_pyi-7IcEAIQAQ"; // <GPGSID>
 
 }

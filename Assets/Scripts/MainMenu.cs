@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public playGamesManager playGamesManager;
     public void playGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("SpaceRunnerV2.0");
     }
     public void rewardAd()
     {

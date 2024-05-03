@@ -4,6 +4,7 @@ using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using TMPro;
+using UnityEngine.SocialPlatforms;
 
 public class playGamesManager : MonoBehaviour
 {
@@ -25,8 +26,7 @@ public class playGamesManager : MonoBehaviour
         {
             // Continue with Play Games Services
             string name = PlayGamesPlatform.Instance.GetUserDisplayName();
-            string id = PlayGamesPlatform.Instance.GetUserId();
-            string ImgUrl = PlayGamesPlatform.Instance.GetUserImageUrl();
+
 
             DetailsTexts.text = "Welcome \n " + name ;
         }
@@ -37,5 +37,15 @@ public class playGamesManager : MonoBehaviour
             // to ask users to sign-in. Clicking it should call
             // PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication).
         }
+    }
+
+    public void ShowAchievementsUI()
+    {
+        PlayGamesPlatform.Instance.ShowAchievementsUI();
+    }
+
+    public void ShowLeaderBoardUI()
+    {
+        PlayGamesPlatform.Instance.ShowLeaderboardUI();
     }
 }

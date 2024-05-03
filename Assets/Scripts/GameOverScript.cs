@@ -10,13 +10,15 @@ public class GameOverScript : MonoBehaviour
 {
     public AdsManager adsManager;
     public TMP_Text scoreText;
+    public TMP_Text coinsText;
     public GameManager GameManager;
     public AdMobAdManager AdMobAdManager;
+    public SpaceRunner spacerunner;
     
-    public void SetUp(int score)
+    public void SetUp()
     {
         gameObject.SetActive(true);
-        scoreText.text = "Score: " + score.ToString();
+        spacerunner.UpdateUI();
         
     }
    

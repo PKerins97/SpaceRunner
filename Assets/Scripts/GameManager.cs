@@ -6,24 +6,35 @@ using GooglePlayGames.BasicApi;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text scoreText; // UI text for displaying score
+    
     public SpaceRunner spaceRunner; // Reference to the SpaceRunnerGame script
     public AdsManager adsManager;
     public AdMobAdManager AdMobAdManager;
     public GameOverScript GameOverScript;
-    private int score = 0;
+    public TMP_Text scoreText; // UI text for displaying score
+    public TMP_Text coinsText; // UI text for displaying coins
+    private int score = 0; // Player's score
+    private int coins = 0; // Player's coins
     private bool isGameOver = false;
     public Transform player;
+    
+    public LeaderboardManager leaderboardManager;
     void Start()
     {
         // Initialize the game
         isGameOver = false;
-        UpdateScore(score);
-        
-        
+
+
+      score = 0; 
+     coins = 0; 
+
+
+}
+     void Update()
+    {
+      
 
     }
-
     // Method to handle game over
     public void GameOver()
     {
@@ -31,10 +42,13 @@ public class GameManager : MonoBehaviour
         if (!isGameOver)
         {
             Debug.Log("Game Over");
-            GameOverScript.SetUp(score);
+            Debug.Log(score + " Reported to leaderboard");
+            GameOverScript.SetUp();
             AdMobAdManager.LoadInterstitial();
+            
         }
         AdMobAdManager.LoadBanner();
+        
     }
 
 
@@ -43,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         score += points;
         // Update UI to reflect the new score
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + score.ToString();
     }
 
 }

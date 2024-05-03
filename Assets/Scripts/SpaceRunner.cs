@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+
 public class SpaceRunner : MonoBehaviour
 {
     public float speed = 5f; // Speed of the spaceship
@@ -20,6 +22,8 @@ public class SpaceRunner : MonoBehaviour
     private int score; // Player's score
     private int coins = 0; // Player's coins
     private bool isGameOver = false;
+    public AchievementManager achievementManager;
+    public LeaderboardManager leaderboardManager;
     private Vector3 obstacleSpawnPosition;
     private Vector3 spawnAreaDepth;
     private int previousScore;
@@ -34,6 +38,18 @@ public class SpaceRunner : MonoBehaviour
     void Update()
     {
         score = (int)transform.position.z;
+        if (coins >= 5)
+        {
+            achievementManager.GrantAchievement(GPGSIds.achievement_getting_started);
+        }
+        if (coins >= 25)
+        {
+            achievementManager.GrantAchievement(GPGSIds.achievement_gimme_the_loot);
+        }
+        if (coins >= 50)
+        {
+            achievementManager.GrantAchievement(GPGSIds.achievement_rolling_in_it);
+        }
         if (!isGameOver)
         {
             // Move the spaceship forward
@@ -48,14 +64,7 @@ public class SpaceRunner : MonoBehaviour
             {
                 MoveRight();
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                MoveUp();
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                MoveDown();
-            }
+          
             // Update the spawn position ahead of the player
             obstacleSpawnPosition = player.position + player.forward * spawnAheadDistance;
 
@@ -66,7 +75,9 @@ public class SpaceRunner : MonoBehaviour
                 previousScore = score;
                 scoreText.text = "Score: " + score;
             }
+
         }
+        
     }
 
     public void MoveLeft()
@@ -83,17 +94,6 @@ public class SpaceRunner : MonoBehaviour
         transform.Rotate(Vector3.forward, Mathf.Lerp(0, -90, 0));
     }
 
-    void MoveUp()
-    {
-        // Move the spaceship to the up
-        transform.Translate(Vector3.up);
-    }
-
-    void MoveDown()
-    {
-        // Move the spaceship to the down
-        transform.Translate(Vector3.down);
-    }
 
     void SpawnObstacle()
     {
@@ -135,6 +135,7 @@ public class SpaceRunner : MonoBehaviour
             Destroy(collision.gameObject.GetComponent<Collider>());
             Debug.Log("Game over");
             gameManager.GameOver();
+            leaderboardManager.ReportScore(GPGSIds.leaderboard_spacerunner, score);
         }
     
     }
@@ -153,7 +154,7 @@ public class SpaceRunner : MonoBehaviour
     }
 
     // Method to update UI elements
-    void UpdateUI()
+    public void UpdateUI()
     {
         scoreText.text = "Score: " + score;
         coinsText.text = "Coins: " + coins;
@@ -163,6 +164,7 @@ public class SpaceRunner : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount;
+       
         // Update UI
         UpdateUI();
     }

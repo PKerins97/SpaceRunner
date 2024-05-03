@@ -3,45 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.SpaceRunner",
-        "processId": 7021,
+        "processId": 21053,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.SpaceRunner",
-            "processId": 4730,
+            "name": "com.ldmnq.launcher3",
+            "processId": 2219,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.SpaceRunner",
-            "processId": 5493,
+            "processId": 16101,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 16967,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 18003,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 18904,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 19822,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.SpaceRunner",
-            "processId": 5868,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.SpaceRunner",
-            "processId": 6236,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.SpaceRunner",
-            "processId": 6640,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.DefaultCompany.SpaceRunner",
-            "processId": 7021,
+            "processId": 21053,
             "exited": false
         }
     ],
