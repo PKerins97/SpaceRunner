@@ -9,8 +9,7 @@ using TMPro;
 public class GameOverScript : MonoBehaviour
 {
     public AdsManager adsManager;
-    public TMP_Text scoreText;
-    public TMP_Text coinsText;
+    
     public GameManager GameManager;
     public AdMobAdManager AdMobAdManager;
     public SpaceRunner spacerunner;
@@ -18,8 +17,7 @@ public class GameOverScript : MonoBehaviour
     public void SetUp()
     {
         gameObject.SetActive(true);
-        spacerunner.UpdateUI();
-        
+
     }
    
     public void RestartButton()

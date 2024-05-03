@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     }
     // Method to handle game over
+  
     public void GameOver()
     {
 
@@ -45,10 +46,19 @@ public class GameManager : MonoBehaviour
             Debug.Log(score + " Reported to leaderboard");
             GameOverScript.SetUp();
             AdMobAdManager.LoadInterstitial();
-            
+            float randomNum = NumberForAd();
+            if (randomNum < 0.5f)
+            {
+                AdMobAdManager.LoadInterstitial();
+
+            }
+            if (randomNum >= 0.5f)
+            {
+                adsManager.LoadInterAd();
+            }
         }
         AdMobAdManager.LoadBanner();
-        
+
     }
 
 
@@ -58,6 +68,11 @@ public class GameManager : MonoBehaviour
         score += points;
         // Update UI to reflect the new score
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    private float NumberForAd()
+    {
+        return UnityEngine.Random.Range(0f, 1f);
     }
 
 }

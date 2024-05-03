@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.SpaceRunner",
-        "processId": 21053,
+        "processId": 3795,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,42 @@
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.SpaceRunner",
             "processId": 21053,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 24696,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 25922,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 27229,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 28147,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 29522,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.SpaceRunner",
+            "processId": 3795,
             "exited": false
         }
     ],
@@ -102,7 +138,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "",
+        "m_Filter": "Ad",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 // Example for IronSource Unity.
 public class AdsManager : MonoBehaviour
 {
+    public SpaceRunner spacerunner;
     public void Start()
     {
 #if UNITY_ANDROID
@@ -25,39 +26,58 @@ public class AdsManager : MonoBehaviour
         IronSource.Agent.init(appKey);
     }
 
-    void OnEnable()
-    {
+   
+
+      void OnEnable()
+        {
         //Add Init Event
-        IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
+            IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
 
         //Add ImpressionSuccess Event
-        IronSourceEvents.onImpressionDataReadyEvent += ImpressionDataReadyEvent;
+            IronSourceEvents.onImpressionDataReadyEvent += ImpressionDataReadyEvent;
 
         //Add AdInfo Rewarded Video Events
-        IronSourceRewardedVideoEvents.onAdOpenedEvent += RewardedVideoOnAdOpenedEvent;
-        IronSourceRewardedVideoEvents.onAdClosedEvent += RewardedVideoOnAdClosedEvent;
-        IronSourceRewardedVideoEvents.onAdAvailableEvent += RewardedVideoOnAdAvailable;
-        IronSourceRewardedVideoEvents.onAdUnavailableEvent += RewardedVideoOnAdUnavailable;
-        IronSourceRewardedVideoEvents.onAdShowFailedEvent += RewardedVideoOnAdShowFailedEvent;
-        IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardedVideoOnAdRewardedEvent;
-        IronSourceRewardedVideoEvents.onAdClickedEvent += RewardedVideoOnAdClickedEvent;
+            IronSourceRewardedVideoEvents.onAdOpenedEvent += RewardedVideoOnAdOpenedEvent;
+
+            IronSourceRewardedVideoEvents.onAdClosedEvent += RewardedVideoOnAdClosedEvent;
+
+            IronSourceRewardedVideoEvents.onAdAvailableEvent += RewardedVideoOnAdAvailable;
+
+            IronSourceRewardedVideoEvents.onAdUnavailableEvent += RewardedVideoOnAdUnavailable;
+
+            IronSourceRewardedVideoEvents.onAdShowFailedEvent += RewardedVideoOnAdShowFailedEvent;
+
+            IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardedVideoOnAdRewardedEvent;
+
+            IronSourceRewardedVideoEvents.onAdClickedEvent += RewardedVideoOnAdClickedEvent;
 
         //Add AdInfo Interstitial Events
-        IronSourceInterstitialEvents.onAdReadyEvent += InterstitialOnAdReadyEvent;
-        IronSourceInterstitialEvents.onAdLoadFailedEvent += InterstitialOnAdLoadFailed;
-        IronSourceInterstitialEvents.onAdOpenedEvent += InterstitialOnAdOpenedEvent;
-        IronSourceInterstitialEvents.onAdClickedEvent += InterstitialOnAdClickedEvent;
-        IronSourceInterstitialEvents.onAdShowSucceededEvent += InterstitialOnAdShowSucceededEvent;
-        IronSourceInterstitialEvents.onAdShowFailedEvent += InterstitialOnAdShowFailedEvent;
-        IronSourceInterstitialEvents.onAdClosedEvent += InterstitialOnAdClosedEvent;
+            IronSourceInterstitialEvents.onAdReadyEvent += ShowInterAd;
+
+            IronSourceInterstitialEvents.onAdLoadFailedEvent += InterstitialOnAdLoadFailed;
+
+            IronSourceInterstitialEvents.onAdOpenedEvent += InterstitialOnAdOpenedEvent;
+
+            IronSourceInterstitialEvents.onAdClickedEvent += InterstitialOnAdClickedEvent;
+
+            IronSourceInterstitialEvents.onAdShowSucceededEvent += InterstitialOnAdShowSucceededEvent;
+
+            IronSourceInterstitialEvents.onAdShowFailedEvent += InterstitialOnAdShowFailedEvent;
+
+            IronSourceInterstitialEvents.onAdClosedEvent += InterstitialOnAdClosedEvent;
 
         //Add AdInfo Banner Events
-        IronSourceBannerEvents.onAdLoadedEvent += BannerOnAdLoadedEvent;
-        IronSourceBannerEvents.onAdLoadFailedEvent += BannerOnAdLoadFailedEvent;
-        IronSourceBannerEvents.onAdClickedEvent += BannerOnAdClickedEvent;
-        IronSourceBannerEvents.onAdScreenPresentedEvent += BannerOnAdScreenPresentedEvent;
-        IronSourceBannerEvents.onAdScreenDismissedEvent += BannerOnAdScreenDismissedEvent;
-        IronSourceBannerEvents.onAdLeftApplicationEvent += BannerOnAdLeftApplicationEvent;
+            IronSourceBannerEvents.onAdLoadedEvent += BannerOnAdLoadedEvent;
+
+            IronSourceBannerEvents.onAdLoadFailedEvent += BannerOnAdLoadFailedEvent;
+
+            IronSourceBannerEvents.onAdClickedEvent += BannerOnAdClickedEvent;
+
+            IronSourceBannerEvents.onAdScreenPresentedEvent += BannerOnAdScreenPresentedEvent;
+
+            IronSourceBannerEvents.onAdScreenDismissedEvent += BannerOnAdScreenDismissedEvent;
+
+            IronSourceBannerEvents.onAdLeftApplicationEvent += BannerOnAdLeftApplicationEvent;
     }
 
     void OnApplicationPause(bool isPaused)
@@ -71,15 +91,30 @@ public class AdsManager : MonoBehaviour
         IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
     }
 
+    public void LoadInterAd()
+    {
+        IronSource.Agent.loadInterstitial();
 
+    }
 
+    public void ShowInterAd(IronSourceAdInfo adInfo)
+    {
+        if (IronSource.Agent.isInterstitialReady())
+        {
+            IronSource.Agent.showInterstitial();
+        }
+        else
+        {
+            Debug.Log("unity-script: IronSource.Agent.isInterstitialReady - False");
+        }
+    }
     #region Init callback handlers
 
     void SdkInitializationCompletedEvent()
     {
         Debug.Log("unity-script: I got SdkInitializationCompletedEvent");
         ShowBanner();
-
+        
     }
 
     #endregion
@@ -111,10 +146,9 @@ public class AdsManager : MonoBehaviour
         Debug.Log("unity-script: I got RewardedVideoAdOpenedEvent With Error" + ironSourceError + "And AdInfo " + adInfo);
     }
 
-    void RewardedVideoOnAdRewardedEvent(IronSourcePlacement ironSourcePlacement, IronSourceAdInfo adInfo)
+    private void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo info)
     {
-        Debug.Log("unity-script: I got RewardedVideoOnAdRewardedEvent With Placement" + ironSourcePlacement + "And AdInfo " + adInfo);
-
+        spacerunner.AddRewardCoins(10);
     }
 
     void RewardedVideoOnAdClickedEvent(IronSourcePlacement ironSourcePlacement, IronSourceAdInfo adInfo)
@@ -124,6 +158,8 @@ public class AdsManager : MonoBehaviour
     public void ShowRewardAd()
     {
         IronSource.Agent.showRewardedVideo();
+        
+         
     }
     #endregion
 

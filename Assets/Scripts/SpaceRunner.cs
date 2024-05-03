@@ -24,6 +24,8 @@ public class SpaceRunner : MonoBehaviour
     private bool isGameOver = false;
     public AchievementManager achievementManager;
     public LeaderboardManager leaderboardManager;
+    public AdsManager adsManager;
+    public AdMobAdManager adMobAdManager;
     private Vector3 obstacleSpawnPosition;
     private Vector3 spawnAreaDepth;
     private int previousScore;
@@ -75,7 +77,7 @@ public class SpaceRunner : MonoBehaviour
                 previousScore = score;
                 scoreText.text = "Score: " + score;
             }
-
+           
         }
         
     }
@@ -134,7 +136,19 @@ public class SpaceRunner : MonoBehaviour
         {
             Destroy(collision.gameObject.GetComponent<Collider>());
             Debug.Log("Game over");
+            adMobAdManager.LoadInterstitial();
+            float randomNum = NumberForAd();
+            if (randomNum < 0.5f)
+            {
+                adMobAdManager.LoadInterstitial();
+
+            }
+            if (randomNum >= 0.5f)
+            {
+                adsManager.LoadInterAd();
+            }
             gameManager.GameOver();
+            
             leaderboardManager.ReportScore(GPGSIds.leaderboard_spacerunner, score);
         }
     
@@ -167,5 +181,16 @@ public class SpaceRunner : MonoBehaviour
        
         // Update UI
         UpdateUI();
+    }
+
+    public void AddRewardCoins(int value)
+    {
+
+        coins += value;
+
+}
+    private float NumberForAd()
+    {
+        return UnityEngine.Random.Range(0f, 1f);
     }
 }
